@@ -22,21 +22,27 @@
           :style="{ height: '100%', borderRight: 0 }"
         >
           <a-sub-menu key="sub1">
-            <span slot="title"><a-icon type="user" />subnav 1</span>
+            <span slot="title">
+              <a-icon type="user" />subnav 1
+            </span>
             <a-menu-item key="1">option1</a-menu-item>
             <a-menu-item key="2">option2</a-menu-item>
             <a-menu-item key="3">option3</a-menu-item>
             <a-menu-item key="4">option4</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">
-            <span slot="title"><a-icon type="laptop" />subnav 2</span>
+            <span slot="title">
+              <a-icon type="laptop" />subnav 2
+            </span>
             <a-menu-item key="5">option5</a-menu-item>
             <a-menu-item key="6">option6</a-menu-item>
             <a-menu-item key="7">option7</a-menu-item>
             <a-menu-item key="8">option8</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub3">
-            <span slot="title"><a-icon type="notification" />subnav 3</span>
+            <span slot="title">
+              <a-icon type="notification" />subnav 3
+            </span>
             <a-menu-item key="9">option9</a-menu-item>
             <a-menu-item key="10">option10</a-menu-item>
             <a-menu-item key="11">option11</a-menu-item>
@@ -53,28 +59,40 @@
         <a-layout-content
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
-          Content
+          <div id="nav">
+            <router-link to="/home">主页</router-link>|
+            <router-link to="/">登录测试</router-link>|
+            <router-link to="/login">登录</router-link>|
+            <router-link to="/about">关于</router-link>|
+            <router-link to="/test">测试</router-link>|
+            <router-link to="/dataPicker">日期选择</router-link>|
+            <router-link to="/zhDataPicker">中文日期选择</router-link>|
+            <router-link to="/tabs">标签</router-link>|
+            <router-link to="/layout">页面布局</router-link>|
+            <router-link to="/notification">通知提醒框</router-link>|
+          </div>
+          <router-view/>
         </a-layout-content>
       </a-layout>
     </a-layout>
   </a-layout>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        collapsed: false,
-      };
-    },
-  };
+export default {
+  data() {
+    return {
+      collapsed: false
+    };
+  }
+};
 </script>
 
 <style>
-  #components-layout-demo-top-side-2 .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 28px 16px 0;
-    float: left;
-  }
+#components-layout-demo-top-side-2 .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 28px 16px 0;
+  float: left;
+}
 </style>

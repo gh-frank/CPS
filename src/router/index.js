@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
+import Layout from '../views/Layout.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/Home',
     name: 'Home',
-    component: Home
+    component: () => import('../views/Home.vue')
+  },
+  {
+    path: '/',
+    name: 'TestLogin',
+    component: () => import('../views/TestLogin.vue')
   },
   {
     path: '/about',
@@ -41,17 +47,12 @@ const routes = [
   {
     path: '/layout',
     name: 'Layout',
-    component: () => import('../views/Layout.vue')
+    component:Layout
   },
   {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue')
-  },
-  {
-    path: '/testLogin',
-    name: 'TestLogin',
-    component: () => import('../views/TestLogin.vue')
   },
   {
     path: '/notification',
