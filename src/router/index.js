@@ -17,6 +17,11 @@ const routes = [
     component: () => import('../views/TestLogin.vue')
   },
   {
+    path: '/HomePage',
+    name: 'HomePage',
+    component: () => import('../views/HomePage.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -58,6 +63,36 @@ const routes = [
     path: '/notification',
     name: 'Notification',
     component: () => import('../views/Notification.vue')
+  },
+  {
+    path: '/EAM/SmartMeter',
+    name: 'EAMsmartMeter',
+    component: () => import('../views/equipmentAssetManagement/SmartMeter.vue')
+  },
+  {
+    path: '/EAM/SmartWaterMeter',
+    name: 'EAMsmartWaterMeter',
+    component: () => import('../views/equipmentAssetManagement/SmartWaterMeter.vue')
+  },
+  {
+    path: '/EAM/EnergyController',
+    name: 'EAMenergyController',
+    component: () => import('../views/equipmentAssetManagement/EnergyController.vue')
+  },
+  {
+    path: '/EAM/ProtocolConverter',
+    name: 'EAMprotocolConverter',
+    component: () => import('../views/equipmentAssetManagement/ProtocolConverter.vue')
+  },
+  {
+    path: '/EAM/SensingDevice',
+    name: 'EAMsensingDevice',
+    component: () => import('../views/equipmentAssetManagement/SensingDevice.vue')
+  },
+  {
+    path: '/EAM/Tmnl',
+    name: 'EAMtmnl',
+    component: () => import('../views/equipmentAssetManagement/Tmnl.vue')
   }
 ]
 

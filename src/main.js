@@ -6,6 +6,8 @@ import axios from 'axios'
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 
+
+
 axios.defaults.baseURL = 'http://localhost:8080/'
 Vue.prototype.$axios = axios
 
