@@ -63,12 +63,6 @@
         </a-col>
       </a-row>
     </div>
-
-    <!-- <div>
-      <a-button type="primary" @click="shengcheng">生成图表</a-button>
-    </div>
-    <div class="ch" ref="main2"></div>
-    <div class="ch" ref="main"></div>-->
   </div>
 </template>
 <script>
