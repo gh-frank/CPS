@@ -11,7 +11,9 @@ export default {
   methods: {
     test() {
       axios.get("/cart/getCartList").then(res => {
-        console.log(res);
+        // 
+        // alert(res);
+        alert(JSON.stringify(res.data));
       }).catch(error=>{
         console.log(error);
       });

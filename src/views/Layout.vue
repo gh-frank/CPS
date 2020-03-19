@@ -60,16 +60,16 @@
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
           <div id="nav">
-            <router-link to="/home">主页</router-link>|
-            <router-link to="/">登录测试</router-link>|
-            <router-link to="/login">登录</router-link>|
-            <router-link to="/about">关于</router-link>|
-            <router-link to="/test">测试</router-link>|
-            <router-link to="/dataPicker">日期选择</router-link>|
-            <router-link to="/zhDataPicker">中文日期选择</router-link>|
-            <router-link to="/tabs">标签</router-link>|
-            <router-link to="/layout">页面布局</router-link>|
-            <router-link to="/notification">通知提醒框</router-link>|
+            <router-link to="/layout/home">主页</router-link>|
+            <!-- <router-link to="/">登录测试</router-link>| -->
+            <router-link to="/layout/login">登录</router-link>|
+            <router-link to="/layout/about">关于</router-link>|
+            <router-link to="/layout/test">测试</router-link>|
+            <router-link to="/layout/dataPicker">日期选择</router-link>|
+            <router-link to="/layout/zhDataPicker">中文日期选择</router-link>|
+            <router-link to="/layout/tabs">标签</router-link>|
+            <router-link to="/layout/layout">页面布局</router-link>|
+            <router-link to="/layout/notification">通知提醒框</router-link>|
           </div>
           <router-view/>
         </a-layout-content>
@@ -78,6 +78,7 @@
   </a-layout>
 </template>
 <script>
+// import login from './Login'
 export default {
   data() {
     return {

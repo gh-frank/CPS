@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    SmartMeter智能电能表
+
     <div>
       <a-row>
         <a-col :span="16">
@@ -20,35 +20,14 @@
               <a-button type="primary">查询</a-button>
             </a-col>
           </a-row>
-          <div>
-            <a-table :columns="columns" :dataSource="data">
-              <a slot="name" slot-scope="text">{{text}}</a>
-              <span slot="customTitle">
-                <a-icon type="smile-o" />Name
-              </span>
-              <span slot="tags" slot-scope="tags">
-                <a-tag
-                  v-for="tag in tags"
-                  :color="tag==='loser' ? 'volcano' : (tag.length > 5 ? 'geekblue' : 'green')"
-                  :key="tag"
-                >{{tag.toUpperCase()}}</a-tag>
-              </span>
-              <span slot="action" slot-scope="text, record">
-                <a>Invite 一 {{record.name}}</a>
-                <a-divider type="vertical" />
-                <a>Delete</a>
-                <a-divider type="vertical" />
-                <a class="ant-dropdown-link">
-                  More actions
-                  <a-icon type="down" />
-                </a>
-              </span>
-            </a-table>
+          <div class="sm-table">
+            <a-table :columns="columns" :dataSource="data"></a-table>
+            
           </div>
         </a-col>
         <a-col :span="8">
           <div>
-            <a-button type="primary" @click="shengcheng">生成图表</a-button>
+            <!-- <a-button type="primary" @click="shengcheng">生成图表</a-button> -->
           </div>
           <a-row>
             <a-col :span="24">
@@ -68,56 +47,132 @@
 <script>
 const columns = [
   {
+    title:'电表名称',
     dataIndex: "name",
-    key: "name",
-    slots: { title: "customTitle" },
-    scopedSlots: { customRender: "name" }
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age"
+    title: "电表编号",
+    dataIndex: "Id",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address"
+    title: "资产号",
+    dataIndex: "assNo",
   },
   {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    scopedSlots: { customRender: "tags" }
+    title: "通讯方式",
+    dataIndex: "tongxun",
   },
   {
-    title: "Action",
-    key: "action",
-    scopedSlots: { customRender: "action" }
+    title: "接线方式",
+    dataIndex: "jiexian",
+  },
+  {
+    title:"安装位置",
+    dataIndex:"azwz"
   }
 ];
 
 const data = [
   {
     key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"]
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
   },
   {
     key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"]
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
   },
   {
     key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"]
-  }
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "4",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "5",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "6",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "7",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "8",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "9",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "10",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+  {
+    key: "11",
+    name: "电表名",
+    Id: "3734567",
+    assNo: 24753685,
+    tongxun: "4G",
+    jiexian: "485",
+    azwz: "合肥",
+  },
+
 ];
 export default {
   data() {
@@ -126,20 +181,20 @@ export default {
       columns
     };
   },
-  methods: {
-    shengcheng() {
+  mounted:function(){
       this.bingtu();
       this.zhexiantu();
-    },
+  },
+  methods: {
     bingtu() {
       var echarts = require("echarts");
       var myChart = echarts.init(this.$refs.main2);
       //   var myChart = echarts.init(this.$refs['main']);
       myChart.setOption({
         title: {
-          text: "某站点用户访问来源",
-          subtext: "纯属虚构",
-          left: "center"
+          text: "电能统计",
+          // subtext: "纯属虚构",
+          left: "right"
         },
         tooltip: {
           trigger: "item",
@@ -148,7 +203,7 @@ export default {
         legend: {
           orient: "vertical",
           left: "left",
-          data: ["直接访问", "邮件营销", "联盟广告", "视频广告", "搜索引擎"]
+          data: ["空调", "电梯#1", "电梯#2", "办公室", "微波炉"]
         },
         series: [
           {
@@ -157,11 +212,11 @@ export default {
             radius: "55%",
             center: ["50%", "60%"],
             data: [
-              { value: 335, name: "直接访问" },
-              { value: 310, name: "邮件营销" },
-              { value: 234, name: "联盟广告" },
-              { value: 135, name: "视频广告" },
-              { value: 1548, name: "搜索引擎" }
+              { value: 335, name: "空调" },
+              { value: 310, name: "电梯#1" },
+              { value: 234, name: "电梯#2" },
+              { value: 135, name: "办公室" },
+              { value: 1548, name: "微波炉" }
             ],
             emphasis: {
               itemStyle: {
@@ -179,11 +234,16 @@ export default {
       var myChart = echarts.init(this.$refs.main);
       //   var myChart = echarts.init(this.$refs['main']);
       myChart.setOption({
+        title: {
+          text: "电能预测",
+          // subtext: "纯属虚构",
+          left: "right"
+        },
         tooltip: {
           trigger: "axis"
         },
         legend: {
-          data: ["邮件营销", "联盟广告", "视频广告"]
+          data: ["水", "气", "热"]
         },
         grid: {
           left: "3%",
@@ -191,37 +251,37 @@ export default {
           bottom: "3%",
           containLabel: true
         },
-        toolbox: {
-          feature: {
-            saveAsImage: {}
-          }
-        },
+        // toolbox: {
+        //   feature: {
+        //     saveAsImage: {}
+        //   }
+        // },
         xAxis: {
           type: "category",
           boundaryGap: false,
-          data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+          data: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
         },
         yAxis: {
           type: "value"
         },
         series: [
           {
-            name: "邮件营销",
+            name: "水",
             type: "line",
             stack: "总量",
-            data: [120, 132, 101, 134, 90, 230, 210]
+            data: [120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90]
           },
           {
-            name: "联盟广告",
+            name: "气",
             type: "line",
             stack: "总量",
-            data: [220, 182, 191, 234, 290, 330, 310]
+            data: [220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290]
           },
           {
-            name: "视频广告",
+            name: "热",
             type: "line",
             stack: "总量",
-            data: [150, 232, 201, 154, 190, 330, 410]
+            data: [150, 232, 201, 154, 190, 330, 410,150, 232, 201, 154, 190]
           }
         ]
       });
@@ -232,7 +292,7 @@ export default {
 </script>
 <style scoped>
 .page {
-  padding: 40px 40px 40px 40px;
+  padding: 40px 40px 0px 40px;
 }
 .meter-text {
   width: 35%;
@@ -244,8 +304,11 @@ export default {
   width: 65%;
   float: right;
 }
-
+.sm-table{
+  margin-top: 40px;
+  margin-right: 60px;
+}
 .ch {
-  height: 400px;
+  height: 363px;
 }
 </style>

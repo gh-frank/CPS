@@ -1,11 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
-import Layout from '../views/Layout.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path:'/tem/table',
+    component:()=>import('../views/my-template/Table.vue')
+  },
+  {
+    path:'/tem/mytable',
+    component:()=>import('../views/my-template/MyTable.vue')
+  },
   {
     path: '/Home',
     name: 'Home',
@@ -52,7 +59,35 @@ const routes = [
   {
     path: '/layout',
     name: 'Layout',
-    component:Layout
+    component: () => import('../views/Layout.vue'),
+    children:[{
+      path:'login',
+      component:()=>import('../views/Login.vue'),
+    },{
+      path:'dataPicker',
+      component:()=>import('../views/DataPicker.vue'),
+    },{
+      path:'home',
+      component:()=>import('../views/Home.vue'),
+    },{
+      path:'notification',
+      component:()=>import('../views/Notification.vue'),
+    },{
+      path:'zhDataPicker',
+      component:()=>import('../views/ZhDataPicker.vue'),
+    },{
+      path:'test',
+      component:()=>import('../views/Test.vue'),
+    },{
+      path:'tabs',
+      component:()=>import('../views/Tabs.vue'),
+    },{
+      path:'about',
+      component:()=>import('../views/About.vue'),
+    },{
+      path:'layout',
+      component:()=>import('../views/Layout.vue'),
+    }]
   },
   {
     path: '/login',
@@ -93,6 +128,10 @@ const routes = [
     path: '/EAM/Tmnl',
     name: 'EAMtmnl',
     component: () => import('../views/equipmentAssetManagement/Tmnl.vue')
+  },
+  {
+    path: '*',
+    component: () => import('../views/404.vue')
   }
 ]
 
